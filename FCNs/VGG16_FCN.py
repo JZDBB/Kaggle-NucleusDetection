@@ -38,11 +38,8 @@ def VGG16(x):
         with tf.name_scope("conv2"):
             conv2_2 = conv2d(conv2_1, 3, 128, 128)
 
-        with tf.name_scope("conv3"):
-            conv2_3 = conv2d(conv2_2, 3, 128, 128)
-
         with tf.name_scope("pool2"):
-            y2 = tf.nn.max_pool(conv2_3, ksize=[1, 2, 2, 1],
+            y2 = tf.nn.max_pool(conv2_2, ksize=[1, 2, 2, 1],
                                 strides=[1, 2, 2, 1], padding="VALID")
 
     with tf.name_scope("layers3"):
@@ -86,4 +83,4 @@ def VGG16(x):
         with tf.name_scope("pool5"):
             y5 = tf.nn.max_pool(conv5_3, ksize=[1, 2, 2, 1],
                                 strides=[1, 2, 2, 1], padding="VALID")
-    with tf.name_scope("upsample1"):
+    # with tf.name_scope("upsample1"):
